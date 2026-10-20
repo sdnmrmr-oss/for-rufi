@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Rouaida</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background: #FFF7E6; /* Vanilla Cream */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: #2D3A47; /* Midnight Lagoon */
+        }
+
+        .screen {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            position: absolute;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .screen.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Screen 1 */
+        .heart-btn {
+            background: #B46A72; /* Rosewood */
+            border: none;
+            color: #FFF7E6; /* Vanilla Cream */
+            padding: 20px 40px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(180, 106, 114, 0.3);
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .heart-btn:hover {
+            transform: scale(1.08);
+            background: #9c575f;
+        }
+
+        /* English Title */
+        .eng-title {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.2rem;
+            color: #B46A72; /* Rosewood */
+            text-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            max-width: 600px;
+            padding: 0 20px;
+        }
+
+        /* Cake & Candle */
+        .cake-box {
+            font-size: 5rem;
+            cursor: pointer;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .flame {
+            font-size: 2.5rem;
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: flicker 0.5s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; transform: translateX(-50%) scale(1); }
+            100% { opacity: 0.7; transform: translateX(-50%) scale(0.9); }
+        }
+
+        /* Opening Letter Card */
+        .letter-card {
+            background: #F7C8D3; /* Blush Petal */
+            color: #2D3A47; /* Midnight Lagoon */
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 15px 35px rgba(45, 58, 71, 0.15);
+            transform: scale(0);
+            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: left;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            border: 2px solid #FFF7E6;
+        }
+
+        .letter-card.open {
+            transform: scale(1);
+        }
+
+        /* General Buttons */
+        .next-btn {
+            background: #A8B58A; /* Sage Leaf */
+            color: #2D3A47; /* Midnight Lagoon */
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(168, 181, 138, 0.3);
+            transition: 0.3s;
+        }
+
+        .next-btn:hover {
+            background: #95a277;
+            color: #FFF7E6;
+        }
+
+        /* Final Heart */
+        .big-heart {
+            font-size: 8rem;
+            color: #B46A72; /* Rosewood */
+            animation: pulse 1.2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Screen 1: Start -->
+    <div id="screen1" class="screen active">
+        <button class="heart-btn" onclick="goToScreen(2)">
+            <span>Click here Rouaida on the heart</span> 💖
+        </button>
+    </div>
+
+    <!-- Screen 2: Happy Birthday English Message -->
+    <div id="screen2" class="screen">
+        <h2 class="eng-title">Happy Birthday to the best friend I could ever ask for! 🎉</h2>
+        <button class="next-btn" onclick="goToScreen(3)">Cake Surprise 🎂</button>
+    </div>
+
+    <!-- Screen 3: Cake & Blowing the Candle -->
+    <div id="screen3" class="screen">
+        <div class="cake-box" onclick="blowCandle()">
+            🎂
+            <div id="candleFlame" class="flame">🔥</div>
+        </div>
+        <p id="cakeInstruction" style="font-weight: 600; margin-top: 10px;">Click on the candle to blow it out!</p>
+        
+        <!-- Opening Letter Card -->
+        <div id="letterCard" class="letter-card">
+            <h3 style="color: #B46A72; margin-bottom: 10px; text-align: center;">To My Dearest Friend 💌</h3>
+            <p>Rouaida, having you in my life is such a huge blessing. I just want to tell you how much I love you, and no matter what, I will always be here for you, supporting you through everything. Wishing you all the happiness and joy in the world. Happy birthday, my dearest! ✨</p>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="next-btn" onclick="goToScreen(4)" style="background: #B46A72; color: #FFF7E6;">The Beautiful Ending 💕</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Screen 4: Final Heart Screen -->
+    <div id="screen4" class="screen">
+        <div class="big-heart">❤️</div>
+        <h2 style="margin-top: 20px; font-weight: 600; color: #B46A72;">Best Friends Forever!</h2>
+    </div>
+
+    <script>
+        // Screen Navigation Function
+        function goToScreen(screenNumber) {
+            const screens = document.querySelectorAll('.screen');
+            screens.forEach(screen => screen.classList.remove('active'));
+            document.getElementById('screen' + screenNumber).classList.add('active');
+        }
+
+        // Blow Candle Function
+        function blowCandle() {
+            const flame = document.getElementById('candleFlame');
+            const instruction = document.getElementById('cakeInstruction');
+            const letter = document.getElementById('letterCard');
+
+            flame.style.display = 'none';
+            instruction.style.display = 'none';
+            letter.classList.add('open');
+        }
+    </script>
+
+</body>
+</html>
